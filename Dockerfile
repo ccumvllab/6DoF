@@ -20,7 +20,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
 
 RUN source ~/.bashrc && \
-    conda create -n tf-1.9 python=3.6 tensorflow-gpu==1.9 -y
+    conda create -n tf-1.9 python=3.6 tensorflow-gpu==1.9 matplotlib -y
 
 RUN echo "conda activate tf-1.9" >> ~/.bashrc
 
