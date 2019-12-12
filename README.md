@@ -2,6 +2,12 @@
 
 訓練模型
 
+
+```bash 
+cd /path/to/6DoF/Dockershare/tools/dataset
+unzip dataset.zip
+```
+
 ```bash
 cd /path/to/6DoF/Dockershare/tools/
 python LSTM.py
