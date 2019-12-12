@@ -1,6 +1,6 @@
-FROM nvidia/cuda:9.0-base-ubuntu16.04
+﻿FROM nvidia/cuda:9.0-base-ubuntu16.04
 
-LABEL maintainer="ccumvllab" version="1.0"
+LABEL maintainer="ccumvllab" version="1.1"
 
 SHELL ["/bin/bash", "-c"] 
 
@@ -20,9 +20,9 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
 
 RUN source ~/.bashrc && \
-    conda create -n tf-1.9 python=3.6 tensorflow-gpu==1.9 matplotlib -y
+    conda create -n torch-1.3 matplotlib python=3.6 pytorch==1.3.1 torchvision cudatoolkit=9.0 -c pytorch -y
 
-RUN echo "conda activate tf-1.9" >> ~/.bashrc
+RUN echo "conda activate torch-1.3" >> ~/.bashrc
 
 # 創建工作目錄
 RUN mkdir /6Dof

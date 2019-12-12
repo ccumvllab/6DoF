@@ -1,10 +1,10 @@
-# 教學手冊
+﻿# 教學手冊
 
 訓練模型
 
 ```bash
 cd /path/to/6DoF/Dockershare/tools/
-python Bi-RNN.py
+python LSTM.py
 ```
 
 訓練環境設定，可選擇：
@@ -28,7 +28,7 @@ python Bi-RNN.py
 
 1. CUDA 9.0
 2. Miniconda3
-3. Tensorflow 1.9
+3. pytorch 1.3
 
 以下指令在 Ubuntu 18.04 測試通過。
 
@@ -64,31 +64,21 @@ source ~/.bashrc
 #### 建立 conda 虛擬環境
 
 ```bash
-conda create -n tf-1.9 python=3.6
+conda create -n torch-1.3 python=3.6
 ```
 
 #### 啟動 conda 虛擬環境
 
 ```bash
-source activate tf-1.9
+source activate torch-1.3
 ```
 
-### Tensorflow
+### Pytorch
 
-#### (啟動環境後) 利用 conda 安裝 tensorflow
-
-選擇安裝 CPU 版或 GPU 版
-
-##### CPU 版
+#### (啟動環境後) 利用 conda 安裝 pytorch
 
 ```bash
-conda install tensorflow==1.9 matplotlib
-```
-
-##### GPU 版
-
-```bash
-conda install tensorflow-gpu==1.9 matplotlib
+conda intall matplotlib pytorch==1.3.1 torchvision cudatoolkit=9.0 -c pytorch -y
 ```
 
 ## 使用 Docker 啟動訓練環境 (Linux Only)
@@ -136,13 +126,13 @@ docker run --gpus all --rm nvidia/cuda:9.0-base nvidia-smi
 ### 取得 docker image
 
 ```bash
-docker pull ccumvllab/5g-1
+docker pull ccumvllab/5g-2
 ```
 
 ### 啟動 docker container
 
 ```bash
-docker run --gpus all -it -v /absolute/path/to/6DoF/Dockershare:/6DoF/Dockershare ccumvllab/5g-1
+docker run --gpus all -it -v /absolute/path/to/6DoF/Dockershare:/6DoF/Dockershare ccumvllab/5g-2
 ```
 
 參數說明：
